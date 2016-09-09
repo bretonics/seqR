@@ -28,8 +28,8 @@ Options:
     -name           Sequence/Strain name
     -ref            Reference sequence file
     -index          Reference index name for bowtie2
-    -1              Illumina paired-end sequence reads 1
-    -2              Illumina paired-end sequence reads 2
+    -r1             Illumina paired-end sequence reads 1
+    -r2             Illumina paired-end sequence reads 2
     -help           Show this message
 \n";
 
@@ -38,8 +38,8 @@ GetOptions(
     'name=s'        =>\$NAME,
     'ref=s'         =>\$REFERENCE,
     'index=s'       =>\$INDEX,
-    'read1=s'       =>\$READS1,
-    'read2=s'       =>\$READS2,
+    'r1=s'          =>\$READS1,
+    'r2=s'          =>\$READS2,
     help            =>sub{pod2usage($usage);}
 )or pod2usage(2);
 
