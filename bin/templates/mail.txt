@@ -1,0 +1,5 @@
+[% firstName %],
+ 
+Your sequence analysis for <strong>[% $name %]</strong> is complete. Here are the results.
+
+Thank you!
