@@ -93,11 +93,10 @@ sub checks {
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # $input = ($name, $reference, $index, $reads1, $reads2);
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# This function takes two (5) arguments, the SRA and accession.
-# Creates and anonymous hash with commands as keys, values as
-# command to execute, returning a reference to the hash of
-# software. This simplifies both visual and future modifications
-# you'd like to make for each command. One place, one change.
+# This function takes two (5) arguments, the SRA and accession. Creates an
+# anonymous hash with commands as keys, values as command to execute, returning
+# a reference to the hash of software. This simplifies both visual and future
+# modifications you'd like to make for each command. One place, one change.
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # $return = ($commands);
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -130,10 +129,9 @@ sub getCommands {
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # $input = executeCommand($call, $commands, $option);
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# This function takes arguments 2 or 3 arguments; the call to
-# the program to be executed, the hash of commands, and an
-# optional 'option' for commands requiring a second flag
-# (such as samtools).
+# This function takes arguments 2 or 3 arguments; the call to the program to be
+# executed, the hash of commands, and an optional 'option' for commands requiring
+# a second flag (such as samtools).
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # $output = Executes command and reports status
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -180,8 +178,8 @@ sub failedEx {
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # $input = ($ourDirName)
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# This function takes no arguments, creates an output directory
-# if non-existent for results, and moves into it
+# This function takes no arguments, creates an output directory if non-existent
+# for results, and moves into it.
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # $output = '$ourDirName' output directory
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
