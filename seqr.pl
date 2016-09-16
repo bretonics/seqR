@@ -46,7 +46,7 @@ GetOptions(
 checks(); # check CL arguments were passed
 #-------------------------------------------------------------------------------
 # VARIABLES
-my $outDir 	= setOutputDir('analysis'); # create analysis directory
+my $outDir 	= setOutputDir("analysis/$name"); # create analysis directory
 my $commands = getCommands($NAME, $REFERENCE, $INDEX, $READS1, $READS2);
 #-------------------------------------------------------------------------------
 # CALLS
@@ -186,7 +186,7 @@ sub failedEx {
 sub setOutputDir {
     my ($outDir) =  @_;
     if (! -e $outDir){
-        `mkdir $outDir`;
+        `mkdir -p $outDir`;
     }
     say "Changing to $outDir directory...\n";
     chdir($outDir) or die "$!";
