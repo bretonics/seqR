@@ -44,8 +44,64 @@ GetOptions(
     'r2=s'          =>\$READS2,
     help            =>sub{pod2usage($usage);}
 )or pod2usage(2);
-
+#-------------------------------------------------------------------------------
+# CHECKS
 checks(); # check CL arguments were passed
+
+# Tools to run analysis
+my %tools = (
+    'bowtie2'       => {
+                        version     => 'bowtie2 --version',
+                        regX        => qr/version \s+(\d+\.\d+)$/,
+                        version     => '2.2.6',
+                        req         => 1,
+                        },
+    'samtools'      => {
+                        version     => 'samtools',
+                        regX        => qr/Version:\s+(\d+\.\d+)/,
+                        version     => '1.3.1',
+                        req         => 1,
+                        },
+    'nucmer'        => {
+                        version     => 'nucmer --version',
+                        regX        => qr/version:\s+(\d+\.\d+)$/,
+                        version     => '3.1',
+                        req         => 1,
+                        },
+    'nucmer'        => {
+                        version     => 'mummerplot --version',
+                        regX        => qr/version:\s+(\d+\.\d+)$/,
+                        version     => '3.5',
+                        req         => 1,
+                        },
+    'seqtk'         => {
+                        version     => 'seqtk',
+                        regX        => qr/Version:\s+(\d+\.\d+)/,
+                        version     => '1.2',
+                        req         => 1,
+                        },
+    'blastp'        => {
+                        version     => 'blastp -version',
+                        regX        => qr/blastp:\s+(\d+\.\d+)/,
+                        version     => '2.2',
+                        req         => 0,
+                        },
+    'makeblastdb'   => {
+                        version     => 'makeblastdb -version',
+                        regX        => qr/makeblastdb:\s+(\d+\.\d+)/,
+                        version     => '2.2',
+                        req         => 0,  # only if --proteins used
+                        },
+    # Standard UNIX utilities
+    'less'          => { req => 1 },
+    'grep'          => { req => 1 },  # yes, we need this before we can test versions :-/
+    'egrep'         => { req => 1 },
+    'sed'           => { req => 1 },
+    'find'          => { req => 1 },
+);
+
+checkTools()
+
 #-------------------------------------------------------------------------------
 # VARIABLES
 
