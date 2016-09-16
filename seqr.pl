@@ -112,7 +112,7 @@ sub getCommands {
         # Hash of hashes for samtools since it has multipe option calls
         "samtools"          => {
                                 view        => "samtools view -b $name.sam > $name.bam",
-                                sort        => "samtools sort $name.bam -0 $name.sorted",
+                                sort        => "samtools sort $name.bam -o $name.sorted",
                                 index       => "samtools index $name.sorted.bam",
                                 tview       => "samtools tview $name.sorted.bam",
                                 consensus   => "samtools mpileup -uf $reference $name.sorted.bam | bcftools call -c | vcfutils.pl vcf2fq > consensus.fastq",
