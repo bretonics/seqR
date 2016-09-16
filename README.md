@@ -8,3 +8,9 @@
 
 Automated Sequence Analysis Workflow
 --
+
+###Dependencies
+
+- MIME::Lite::TT::HTML
+
+
