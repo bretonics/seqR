@@ -3,6 +3,8 @@
 use strict; use warnings; use diagnostics; use feature qw(say);
 use Getopt::Long; use Pod::Usage;
 
+use File::Spec;
+
 use MyConfig;
 
 # =============================================================================
@@ -46,8 +48,14 @@ GetOptions(
 checks(); # check CL arguments were passed
 #-------------------------------------------------------------------------------
 # VARIABLES
-my $outDir 	= setOutputDir("analysis/$name"); # create analysis directory
-my $commands = getCommands($NAME, $REFERENCE, $INDEX, $READS1, $READS2);
+
+# Get/Set relative->aboslute paths for files
+$REFERENCE      = File::Spec->rel2abs($REFERENCE);
+$READS1         = File::Spec->rel2abs($READS1);
+$READS2         = File::Spec->rel2abs($READS2);
+
+my $outDir      = setOutputDir("analysis/$NAME"); # create analysis directory
+my $commands    = getCommands($NAME, $REFERENCE, $INDEX, $READS1, $READS2);
 #-------------------------------------------------------------------------------
 # CALLS
 executeCommand("bowtie2-build", $commands); # bowtie2-build
